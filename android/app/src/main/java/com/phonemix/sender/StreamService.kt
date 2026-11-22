@@ -223,7 +223,7 @@ class StreamService : Service() {
                     socket = Socket().apply {
                         tcpNoDelay = true
                         keepAlive = true
-                        connect(InetSocketAddress(host, port), 3000)
+                        connect(InetSocketAddress(this@StreamService.host, this@StreamService.port), 3000)
                     }
                     val out = socket.getOutputStream()
                     out.write(buildHeader())
